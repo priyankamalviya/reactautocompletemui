@@ -58,7 +58,7 @@ class App extends React.Component{
 
     render(){
         return <MuiThemeProvider muiTheme = {getMuiTheme()}>
-            <AutoComplete hintText="spetsnaz"
+            <AutoComplete floatingLabelText='Your search item '
                 dataSource    = {this.state.dataSource}
                 onUpdateInput = {this.onUpdateInput} />
             </MuiThemeProvider>
