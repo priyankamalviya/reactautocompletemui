@@ -32,11 +32,13 @@ class App extends React.Component{
         }
 
     performSearch() {
+        var text = this.state.inputValue;
+        var smal = text.toLowerCase();
         var
             self = this,
-            url  = googleAutoSuggestURL + this.state.inputValue;
+            url  = googleAutoSuggestURL + smal;
 
-
+        console.log(url);
         if(this.state.inputValue !== '') {
             JSONP(url, function(error, data) {
                 var searchResults, retrievedSearchTerms;
@@ -59,6 +61,7 @@ class App extends React.Component{
     render(){
         return <MuiThemeProvider muiTheme = {getMuiTheme()}>
             <AutoComplete floatingLabelText='Your search item '
+                          filter={AutoComplete.noFilter}
                 dataSource    = {this.state.dataSource}
                 onUpdateInput = {this.onUpdateInput} />
             </MuiThemeProvider>
