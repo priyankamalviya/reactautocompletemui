@@ -1,14 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import React from 'react'
+import {render} from 'react-dom'
+import Component from './'
+import Header from './appbar';
+import Display from './displayvids';
+import Footer from './footer';
 
+let Youtube = React.createClass({
+    cb(searchResults) {
 
-injectTapEventPlugin();
+        console.log('searchResults are: ', searchResults);
+    },
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
+    render:function() {
+        return <div>
+            <Header />
+            <Component
+                apiKey ='AIzaSyDZ2FowQR_0TbL2A6Nkfa0h-og_9C4OlAk'
+                maxResults	='50'
+                placeHolder	='Your Search Item Here'
+                callback 	={this.cb} />
+            <Display />
+            <Footer />
+        </div>
+    }
+})
 
-
+render(<Youtube />, document.querySelector('#app'))
