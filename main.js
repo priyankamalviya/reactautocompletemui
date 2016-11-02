@@ -1,6 +1,6 @@
-import React from 'react'
-import {render} from 'react-dom'
-import Component from './'
+import React from 'react';
+import {render} from 'react-dom';
+import Component from './';
 import Header from './appbar';
 import Display from './displayvids';
 import Footer from './footer';
@@ -20,9 +20,8 @@ let Youtube = React.createClass({
                 placeHolder	='Your Search Item Here'
                 callback 	={this.cb} />
             <Display />
-            <Footer />
-        </div>
+            <Footer /></div>
     }
-})
+});
 
-render(<Youtube />, document.querySelector('#app'))
+render(<Youtube />, document.querySelector('app'))
